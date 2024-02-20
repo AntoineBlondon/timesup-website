@@ -18,7 +18,7 @@
  */
 
 
-const BASE_URL = 'http://octimesup.pythonanywhere.com';
+const BASE_URL = 'https://octimesup.pythonanywhere.com';
 
 
 document.addEventListener('deviceready', onDeviceReady, false);
