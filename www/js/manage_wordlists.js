@@ -1,5 +1,5 @@
 function new_wordlist() {
-    createWordList("Nouvelle liste", ["mot1", "mot2", "mot3"]).then(() => {
+    createWordList("Nouvelle liste", ["mot1"]).then(() => {
         wordlists_screen();
     });
 }
@@ -28,8 +28,12 @@ function edit_wordlist(id) {
             add_word(id, document.getElementById('edit-wordlist-word').value);
         };
 
+        document.getElementById('edit-wordlist-play').onclick = () => {
+            load_wordlist(id);
+        }
+
         for(let word in list.words) {
-            document.getElementById('edit-wordlist-words').innerHTML += `<li>${list.words[word]} <button id="edit-wordlist-worditem-${list.words[word]}">Supprimer</button></li>`;
+            document.getElementById('edit-wordlist-words').innerHTML += `<li id="edit-wordlist-worditem-${list.words[word]}">${list.words[word]} <button id="edit-wordlist-worditem-${list.words[word]}-delete">Supprimer</button></li>`;
         }
         for(let word in list.words) {
             document.getElementById(`edit-wordlist-worditem-${list.words[word]}`).onclick = () => {
@@ -50,8 +54,9 @@ function change_title(id, new_title) {
 
 
 function remove_word(id, word) {
+    document.getElementById(`edit-wordlist-worditem-${word}`).remove();
     updateWordList(id, null, [], [word]);
-    // wait 1 second
+
     edit_wordlist(id);
 
 }

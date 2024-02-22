@@ -77,6 +77,20 @@ body, html {
 
 
 
+#logo {
+    width: 70%;
+    height: auto;
+    left: 0%;
+    position: absolute;
+    transform: translate(35%, 0);
+}
+
+
+
+
+
+
+
 
 
 
@@ -256,9 +270,44 @@ input {
 
 
 
+#add-wordlist-button {
+    position: absolute;
+    text-align: center;
+    font-size: 1rem;
+    width: 15vw;
+    bottom: 0%;
+    right: 0%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    background-color: transparent;
+    color: #d2a517;
+    fill: #d2a517;
+    background-color: #d2a517;
+    border-radius: .7rem;
+    padding: 2%;
+}
 
+.button_icon {
+    height: 100%;
+    width: 100%;
+}
 
+#wordlists-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    gap: 10px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+}
 
+.wordlist_element {
+    border-radius: .7rem;
+    height: 2.5rem;
+}
 
 
 

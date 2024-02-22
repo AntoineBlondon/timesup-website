@@ -58,6 +58,7 @@ function menu_screen() {
         content=`
         
         <div id="menu-screen">
+            <h1>Timesup</h1>
             <button id="play-button" onclick="start_game()">Jouer</button>
             <button id="wordlists-button" onclick="wordlists_screen()">Mes listes</button>
         </div>
@@ -74,7 +75,7 @@ function wordlists_screen() {
         let formatted = "";
         lists = JSON.parse(lists);
         for(let element of lists) {
-            formatted += `<button id="${element.id}" onclick="edit_wordlist(${element.id})">${element.title}</button>`;
+            formatted += `<button class="wordlist_element" id="${element.id}" onclick="edit_wordlist(${element.id})">${element.title}</button>`;
         } 
         
         screen(
@@ -82,7 +83,7 @@ function wordlists_screen() {
             content=`
             <div id="wordlists-screen">
             ${formatted}
-            <button id="add-wordlist-button" onclick="new_wordlist()">Ajouter une liste</button>
+            <div id="add-wordlist-button" onclick="new_wordlist()"><img class="button_icon" src="img/plus-icon.svg"></div>
             </div>
             `,
             parent=menu_screen,
@@ -124,6 +125,7 @@ function edit_wordlist_screen() {
         content=`
         <div id="edit-wordlist-screen">
             <button id="edit-wordlist-delete" onclick="deleteWordList()">Supprimer</button>
+            <button id="edit-wordlist-play">Choisir</button>
             <form id="edit-wordlist-form">
                 <h2>Modifier une liste</h2>
                 <label for="edit-wordlist-title">Titre:</label>

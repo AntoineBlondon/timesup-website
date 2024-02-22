@@ -33,14 +33,41 @@ function checkAuthStatus() {
     const token = localStorage.getItem('jwt');
     if (token) {
         // Here, you could also validate the token's integrity or expiration if needed
-        console.log('User is logged in');
-        menu_screen();
+        testToken().then(() => {
+            console.log('User is logged in');
+            menu_screen();
+        }).catch(error => {
+            console.error('Token test failed:', error);
+            console.log('User is not logged in');
+            login_screen();
+        });
     } else {
         console.log('User is not logged in');
         login_screen();
     }
 }
 
+
+
+function testToken() {
+    return new Promise((resolve, reject) => {
+        const token = localStorage.getItem('jwt');
+        cordova.plugin.http.sendRequest(`${BASE_URL}/test`, {
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json' // Explicitly set the Content-Type header
+                
+            },
+        }, response => {
+            console.log('Token test successful:', response.data);
+            resolve(response.data);
+        }, response => {
+            console.error('Token test failed:', response.error);
+            reject(response.error);
+        })
+    });
+}
 
 
 
