@@ -79,7 +79,7 @@ function wordlists_screen() {
         } 
         
         screen(
-            title='Wordlists',
+            title='Listes',
             content=`
             <div id="wordlists-screen">
             ${formatted}
@@ -101,7 +101,7 @@ function wordlists_screen() {
 function game_screen() {
 
     screen(
-        title='Play',
+        title='Jouer',
         content=`
         <div id="play-screen">
             <div id="current_word">word</div>

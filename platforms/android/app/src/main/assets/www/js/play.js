@@ -13,17 +13,12 @@ function load_wordlist(wordListId) {
 
 
 function start_game() {
-    
-    
     let wordlist = JSON.parse(localStorage.getItem('current_wordlist')).words;
-    console.log(localStorage.getItem('current_wordlist'));
-    console.log(wordlist);
     let game = JSON.stringify({"points": [0, 0], 
-    "current_team": 0,
-    "found_words": [],
-    "words": wordlist,
-    "current_word": wordlist[0]});
-    console.log(game);
+                               "current_team": 0,
+                               "found_words": [],
+                               "words": wordlist,
+                               "current_word": wordlist[0]});
     localStorage.setItem('current_game', game);
     
     

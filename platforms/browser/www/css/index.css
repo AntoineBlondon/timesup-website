@@ -363,3 +363,19 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+
+
+.loader{
+    margin: 0 0 2em;
+    height: 100px;
+    width: 20%;
+    text-align: center;
+    padding: 1em;
+    margin: 0 auto 1em;
+    left: 50%;
+    top: 50%;
+  }
+  svg path,
+  svg rect{
+    fill: #d2a517;
+  }
