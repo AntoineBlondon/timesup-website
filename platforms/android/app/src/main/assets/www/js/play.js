@@ -14,15 +14,20 @@ function load_wordlist(wordListId) {
 
 function start_game() {
     
-    load_wordlist(1);
     
     let wordlist = JSON.parse(localStorage.getItem('current_wordlist')).words;
-    localStorage.setItem('current_game', JSON.stringify({"points": [0, 0], 
-                                          "current_team": 0,
-                                          "found_words": [],
-                                          "words": wordlist,
-                                          "current_word": wordlist[0]}));
+    console.log(localStorage.getItem('current_wordlist'));
+    console.log(wordlist);
+    let game = JSON.stringify({"points": [0, 0], 
+    "current_team": 0,
+    "found_words": [],
+    "words": wordlist,
+    "current_word": wordlist[0]});
+    console.log(game);
+    localStorage.setItem('current_game', game);
     
+    
+
     shuffle_words();
     pick_word();
     game_screen();
@@ -89,6 +94,10 @@ function shuffle_words() {
 
 
 function pick_word() {
+    if(get_words().length == 1) {
+        set_current_word(get_words()[0]);
+        return;
+    }
     let old_word = get_current_word();
     let new_word = old_word;
     if(old_word == "done") {
