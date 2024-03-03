@@ -79,7 +79,7 @@ body, html {
 
 .screen {
     padding: 20px;
-    height: 84vh;
+    height: 80vh;
     position: absolute;
     left: 50%;
     transform: translate(-50% ,0);
