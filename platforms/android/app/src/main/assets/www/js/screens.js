@@ -59,8 +59,8 @@ function menu_screen() {
         
         <div id="menu-screen">
             <h1>Timesup</h1>
-            <button id="play-button" onclick="start_game()">Jouer</button>
-            <button id="wordlists-button" onclick="wordlists_screen()">Mes listes</button>
+            <button id="play-button" class="main-button" onclick="start_game()">Jouer</button>
+            <button id="wordlists-button" class="main-button" onclick="wordlists_screen()">Listes</button>
         </div>
 
 
@@ -79,11 +79,11 @@ function wordlists_screen() {
         } 
         
         screen(
-            title='Wordlists',
+            title='Listes',
             content=`
             <div id="wordlists-screen">
             ${formatted}
-            <div id="add-wordlist-button" onclick="new_wordlist()"><img class="button_icon" src="img/plus-icon.svg"></div>
+            <div id="add-wordlist-button" onclick="new_wordlist()"><p class="add_wordlist_text">Ajouter</p></div>
             </div>
             `,
             parent=menu_screen,
@@ -101,7 +101,7 @@ function wordlists_screen() {
 function game_screen() {
 
     screen(
-        title='Play',
+        title='Jouer',
         content=`
         <div id="play-screen">
             <div id="current_word">word</div>
@@ -124,18 +124,23 @@ function edit_wordlist_screen() {
         title='Modifier',
         content=`
         <div id="edit-wordlist-screen">
-            <button id="edit-wordlist-delete" onclick="deleteWordList()">Supprimer</button>
-            <button id="edit-wordlist-play">Choisir</button>
+            <div class="button_panel">
+                <button id="edit-wordlist-delete" class="panel_button" onclick="deleteWordList()">Supprimer</button>
+                <button id="edit-wordlist-play" class="panel_button">Choisir</button>
+            </div>
             <form id="edit-wordlist-form">
-                <h2>Modifier une liste</h2>
-                <label for="edit-wordlist-title">Titre:</label>
-                <input type="text" id="edit-wordlist-title" name="title"><br>
-                <button id="edit-wordlist-settitle">Modifier</button>
-                <label for="edit-wordlist-words">Mots:</label>
-                <ul id="edit-wordlist-words">
-                </ul>
-                <input type="text" id="edit-wordlist-word" name="words"><br>
-                <input type="button" value="Ajouter" id="edit-wordlist-add">
+                <div id="change_title">
+                    <label for="edit-wordlist-title" id="title_title">Titre</label>
+                    <input type="text" id="edit-wordlist-title" name="title">
+                    <button id="edit-wordlist-settitle">Modifier</button>
+                </div>
+                <div id="edit_words">
+                    <label for="edit-wordlist-words" id="words_title">Mots</label>
+                    <ul id="edit-wordlist-words">
+                    </ul>
+                    <input type="text" id="edit-wordlist-word" name="words">
+                    <input type="button" value="Ajouter" id="edit-wordlist-add">
+                </div>
             </form>
         </div>
         

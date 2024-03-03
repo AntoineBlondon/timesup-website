@@ -24,8 +24,8 @@ body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color:#0A122A;
-    color: #e9efff;
+    background-color:#EDF2F4;
+    color: #2B2D42;
     font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
     font-size:12px;
     height:100vh;
@@ -38,11 +38,18 @@ body {
 }
 
 #top-menu {
+    color:#EDF2F4;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background-color: #d2a517; /* Light grey background */
+    background-color: #0080FF; /* Light grey background */
+    position: absolute;
+    width: 90vw;
+    left: 50%;
+    transform: translate(-50%, 0);
+    top: 1%;
+    border-radius: .7rem;
 }
 
 #back-arrow, #logout {
@@ -72,6 +79,12 @@ body, html {
 
 .screen {
     padding: 20px;
+    height: 84vh;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50% ,0);
+    width: 85vw;
+    bottom: 0;
 }
 
 
@@ -96,10 +109,10 @@ body, html {
 
 button {
     appearance: none;
-    background-color: transparent;
-    border: 2px solid #d2a517;
-    border-radius: 1.4rem;
-    color: #d2a517;
+    background-color: #0080FF;
+    border-radius: 1rem;
+    border: transparent;
+    color: #EDF2F4;
     cursor: pointer;
     align-self: center;
     font-size: 1rem;
@@ -113,12 +126,12 @@ button {
     text-align: center;
     &:hover,
         &:focus {
-        color: #fff;
+        color: #EDF2F4;
         outline: 0;
     }
     transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
     &:hover, &:focus   {
-    box-shadow: 0 0 40px 40px #d2a517 inset;
+    box-shadow: 0 0 40px 40px #0080FF inset;
   }
   }
   
@@ -126,27 +139,25 @@ button {
 
 
 
-
+.main-button {
+    position: absolute;
+    width: 90%;
+    height: 15%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    text-align: center;
+    font-size: 2.3rem;
+    font-weight: 800;
+}
 
 
 #wordlists-button {
-    position: absolute;
-    width: 70%;
-    height: 15%;
     bottom: 2%;
-    left: 15%;
 }
 
 
 #play-button {
-    position: absolute;
-    font-size: 2.3rem;
-    font-weight: 800;
-    text-align: center;
-    width: 70%;
-    height: 15%;
     bottom: 19%;
-    left: 15%;
 }
 
 
@@ -241,14 +252,15 @@ form {
 
 input {
     appearance: none;
-    background-color: transparent;
-    border: 2px solid #d2a517;
+    border: transparent;
     border-radius: .3rem;
     cursor: pointer;
     align-self: center;
     font-size: 1rem;
     font-weight: 400;
-    line-height: 1;
+    line-height: 1.5;
+    padding-right: 1%;
+    padding-left: 1%;
 }
 
 .btn {
@@ -274,18 +286,26 @@ input {
     position: absolute;
     text-align: center;
     font-size: 1rem;
-    width: 15vw;
-    bottom: 0%;
-    right: 0%;
-    transform: translate(-50%, -50%);
+    bottom: 2%;
+    right: 2%;
     cursor: pointer;
     background-color: transparent;
-    color: #d2a517;
-    fill: #d2a517;
-    background-color: #d2a517;
+    color:#EDF2F4;
+    fill: #0080FF;
+    background-color:#2B2D42;
     border-radius: .7rem;
-    padding: 2%;
+    padding-left: 7%;
+    padding-right: 7%;
 }
+
+.add_wordlist_text {
+    font-weight: bold;
+    color:#EDF2F4;
+}
+
+
+
+
 
 .button_icon {
     height: 100%;
@@ -305,8 +325,107 @@ input {
 }
 
 .wordlist_element {
-    border-radius: .7rem;
-    height: 2.5rem;
+    border-radius: 1rem;
+    height: 3.5rem;
+    width: 90vw;
+    background-color: #2B2D42;
+}
+
+
+
+
+.button_panel {
+    display: flex;
+    justify-content: space-evenly;
+    height: 2rem;
+    width: 100%;
+
+    
+
+}
+
+
+.panel_button {
+    height: 100%;
+    border-radius: .3rem;
+    width: 49%;
+}
+
+#edit-wordlist-form {
+    gap: 0px;
+}
+
+
+#change_title {
+    background-color: #0080FF;
+    margin: .5%;
+    border-radius: .3rem;
+    display: flex;
+    flex-direction: column;
+    width: 99%;
+    gap:.6rem;
+
+}
+
+#title_title {
+    text-align: center;
+    margin-top: 3%;
+    color:#EDF2F4;
+}
+
+
+#edit-wordlist-settitle {
+    margin-bottom: 3%;
+    background-color: #2B2D42;
+    color: #EDF2F4;
+    border-radius: .3rem;
+    width: 60%;
+    height: 1.5rem;
+}
+
+#edit_words {
+    background-color: #0080FF;
+    border-radius: .3rem;
+    display: flex;
+    flex-direction: column;
+    width: 99%;
+    gap:.6rem;
+
+}
+
+
+#words_title {
+    text-align: center;
+    margin-top: 3%;
+    color:#EDF2F4;
+}
+
+
+
+#edit-wordlist-add {
+    margin-bottom: 3%;
+    background-color: #2B2D42;
+    color: #EDF2F4;
+    border-radius: .3rem;
+    width: 60%;
+    height: 1.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+
+
+.worditem {
+    color:#EDF2F4;
+    margin-bottom: 2%;
+}
+
+
+.worditem_delete_button {
+    background-color: #2B2D42;
+    color: #EDF2F4;
+    border-radius: .3rem;
 }
 
 
@@ -377,5 +496,5 @@ h1 {
   }
   svg path,
   svg rect{
-    fill: #d2a517;
+    fill: #0080FF;
   }

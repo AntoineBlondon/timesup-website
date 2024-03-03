@@ -33,7 +33,7 @@ function edit_wordlist(id) {
         }
 
         for(let word in list.words) {
-            document.getElementById('edit-wordlist-words').innerHTML += `<li id="edit-wordlist-worditem-${list.words[word]}">${list.words[word]} <button id="edit-wordlist-worditem-${list.words[word]}-delete">Supprimer</button></li>`;
+            document.getElementById('edit-wordlist-words').innerHTML += `<li class="worditem" id="edit-wordlist-worditem-${list.words[word]}">${list.words[word]} <button class="worditem_delete_button" id="edit-wordlist-worditem-${list.words[word]}-delete">Supprimer</button></li>`;
         }
         for(let word in list.words) {
             document.getElementById(`edit-wordlist-worditem-${list.words[word]}`).onclick = () => {
