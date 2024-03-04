@@ -29,7 +29,9 @@ function edit_wordlist(id) {
         };
 
         document.getElementById('edit-wordlist-play').onclick = () => {
+            localStorage.setItem('current_wordlist_id', id);
             load_wordlist(id);
+            alert("Liste sélectionnée");
         }
 
         for(let word in list.words) {

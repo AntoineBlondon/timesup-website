@@ -13,6 +13,13 @@ function load_wordlist(wordListId) {
 
 
 function start_game() {
+    if (localStorage.getItem('current_wordlist_id') == null) {
+        alert("Veuillez sélectionner une liste de mots");
+        return;
+    }
+
+    load_wordlist(Number(localStorage.getItem('current_wordlist_id')));
+
     let wordlist = JSON.parse(localStorage.getItem('current_wordlist')).words;
     let game = JSON.stringify({"points": [0, 0], 
                                "current_team": 0,
