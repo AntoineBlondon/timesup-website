@@ -18,6 +18,7 @@ function start_game() {
         return;
     }
 
+    load_wordlist(Number(localStorage.getItem('current_wordlist_id')));
 
     let wordlist = JSON.parse(localStorage.getItem('current_wordlist')).words;
     let game = JSON.stringify({"points": [0, 0], 
