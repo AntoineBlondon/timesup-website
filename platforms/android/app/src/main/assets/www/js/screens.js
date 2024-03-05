@@ -74,8 +74,9 @@ function wordlists_screen() {
     getWordLists().then(lists => {
         let formatted = "";
         lists = JSON.parse(lists);
+        let selected = Number(localStorage.getItem('current_wordlist_id'));
         for(let element of lists) {
-            formatted += `<button class="wordlist_element" id="${element.id}" onclick="edit_wordlist(${element.id})">${element.title}</button>`;
+            formatted += `<button class="wordlist_element ${selected == element.id ? 'selected' : ''}" id="${element.id}" onclick="edit_wordlist(${element.id})">${element.title}</button>`;
         } 
         
         screen(

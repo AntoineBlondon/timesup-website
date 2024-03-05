@@ -16,6 +16,8 @@ function edit_wordlist(id) {
         }
         document.getElementById('edit-wordlist-title').value = list.title;
         document.getElementById('edit-wordlist-delete').onclick = () => {
+            localStorage.setItem('current_wordlist_id', "");
+            localStorage.setItem('current_wordlist', "");
             deleteWordList(id).then(() => {
                 wordlists_screen();
             });
@@ -31,7 +33,6 @@ function edit_wordlist(id) {
         document.getElementById('edit-wordlist-play').onclick = () => {
             localStorage.setItem('current_wordlist_id', id);
             load_wordlist(id);
-            alert("Liste sélectionnée");
         }
 
         for(let word in list.words) {

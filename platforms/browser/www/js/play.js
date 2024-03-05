@@ -13,7 +13,7 @@ function load_wordlist(wordListId) {
 
 
 function start_game() {
-    if (localStorage.getItem('current_wordlist_id') == null) {
+    if (!localStorage.getItem('current_wordlist_id')) {
         alert("Veuillez sélectionner une liste de mots");
         return;
     }

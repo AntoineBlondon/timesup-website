@@ -333,6 +333,11 @@ input {
     background-color: #2B2D42;
 }
 
+.selected {
+    background-color: #0080FF;
+    color: #EDF2F4;
+}
+
 
 
 
