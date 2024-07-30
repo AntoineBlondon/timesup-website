@@ -167,7 +167,7 @@ function getWordLists() {
     });
 }
 
-function updateWordList(wordListId, title, words_to_add, words_to_remove) {
+function updateWordList(wordListId, title, words_to_add, words_to_remove, secret) {
     return new Promise((resolve, reject) => {
         const token = localStorage.getItem('jwt');
         cordova.plugin.http.setDataSerializer('json'); // Set the serializer to JSON
@@ -180,7 +180,8 @@ function updateWordList(wordListId, title, words_to_add, words_to_remove) {
             data: {
                 title: title,
                 add: words_to_add,
-                remove: words_to_remove
+                remove: words_to_remove,
+                secret: secret
             },
         }, response => {
             console.log('Word list updated:', response.data);

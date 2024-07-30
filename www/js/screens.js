@@ -127,6 +127,7 @@ function edit_wordlist_screen() {
         <div id="edit-wordlist-screen">
             <div class="button_panel">
                 <button id="edit-wordlist-delete" class="panel_button" onclick="deleteWordList()">Supprimer</button>
+                <button id="edit-wordlist-share" class="panel_button">Partager</button>
                 <button id="edit-wordlist-play" class="panel_button">Choisir</button>
             </div>
             <form id="edit-wordlist-form">

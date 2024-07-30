@@ -15,6 +15,8 @@ function edit_wordlist(id) {
             }
         }
         document.getElementById('edit-wordlist-title').value = list.title;
+        document.getElementById('edit-wordlist-share').background = list.secret ? "blue" : "red" ;
+        document.getElementById('edit-wordlist-share').innerHTML = list.secret ? "Partager" : "Partagée";
         document.getElementById('edit-wordlist-delete').onclick = () => {
             localStorage.setItem('current_wordlist_id', "");
             localStorage.setItem('current_wordlist', "");
@@ -22,6 +24,10 @@ function edit_wordlist(id) {
                 wordlists_screen();
             });
         };
+
+        document.getElementById('edit-wordlist-share').onclick = () => {
+            toggle_secret(id, !list.secret);
+        }
         document.getElementById('edit-wordlist-settitle').onclick = () => {
             change_title(id, document.getElementById('edit-wordlist-title').value);
         };
@@ -50,7 +56,7 @@ function edit_wordlist(id) {
 
 
 function change_title(id, new_title) {
-    updateWordList(id, new_title, [], []);
+    updateWordList(id, new_title, [], [], null);
     edit_wordlist(id);
   
 }
@@ -58,16 +64,25 @@ function change_title(id, new_title) {
 
 function remove_word(id, word) {
     document.getElementById(`edit-wordlist-worditem-${word}`).remove();
-    updateWordList(id, null, [], [word]);
+    updateWordList(id, null, [], [word], null);
 
     edit_wordlist(id);
 
 }
 
 function add_word(id, word) {
-    updateWordList(id, null, [word], []).then(() => {
+    updateWordList(id, null, [word], [], null).then(() => {
         edit_wordlist(id);
     }).catch(error => {
         console.error('Error adding word:', error);
+    });
+}
+
+
+function toggle_secret(id, new_value) {
+    updateWordList(id, null, [], [], new_value).then(() => {
+        edit_wordlist(id);
+    }).catch(error => {
+        console.error('Error toggling secret:', error);
     });
 }
