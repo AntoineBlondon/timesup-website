@@ -61,6 +61,7 @@ function menu_screen() {
             <h1>Timesup</h1>
             <button id="play-button" class="main-button" onclick="start_game()">Jouer</button>
             <button id="wordlists-button" class="main-button" onclick="wordlists_screen()">Listes</button>
+            <button id="settings-button" class="main-button" onclick="edit_settings()">Paramètres</button>
         </div>
 
 
@@ -178,5 +179,24 @@ function edit_wordlist_screen() {
         
         `,
         parent=wordlists_screen
+    );
+}
+
+
+function settings_screen() {
+    screen(
+        title='Paramètres',
+        content=`
+        <div id="settings-screen">
+            <form id="settings-form">
+                <div id="change_gametime">
+                    <label for="edit-gametime" id="time_title">Temps d'un round (en secondes)</label>
+                    <input type="number" id="edit-gametime" name="title">
+                    <button id="edit-gametime-set">Modifier</button>
+                </div>
+            </form>
+        </div>
+        `,
+        parent=menu_screen
     );
 }

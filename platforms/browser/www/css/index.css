@@ -150,14 +150,17 @@ button {
     font-weight: 800;
 }
 
+#settings-button {
+    bottom: 2%;
+}
 
 #wordlists-button {
-    bottom: 2%;
+    bottom: 19%;
 }
 
 
 #play-button {
-    bottom: 19%;
+    bottom: 36%;
 }
 
 
