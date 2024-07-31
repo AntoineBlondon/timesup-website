@@ -15,8 +15,9 @@ function edit_wordlist(id) {
             }
         }
         document.getElementById('edit-wordlist-title').value = list.title;
-        document.getElementById('edit-wordlist-share').background = list.secret ? "blue" : "red" ;
+        document.getElementById('edit-wordlist-share').backgroundColor = list.secret ? "blue" : "purple" ;
         document.getElementById('edit-wordlist-share').innerHTML = list.secret ? "Partager" : "Partagée";
+        document.getElementById('edit-wordlist-play').innerHTML = Number(localStorage.getItem('current_wordlist_id')) == id ? "Choisie" : "Choisir";
         document.getElementById('edit-wordlist-delete').onclick = () => {
             localStorage.setItem('current_wordlist_id', "");
             localStorage.setItem('current_wordlist', "");
@@ -37,8 +38,8 @@ function edit_wordlist(id) {
         };
 
         document.getElementById('edit-wordlist-play').onclick = () => {
-            localStorage.setItem('current_wordlist_id', id);
-            load_wordlist(id);
+            select_wordlist(id);
+            document.getElementById('edit-wordlist-play').innerHTML = Number(localStorage.getItem('current_wordlist_id')) == id ? "Choisie" : "Choisir";
         }
 
         for(let word in list.words) {
@@ -85,4 +86,9 @@ function toggle_secret(id, new_value) {
     }).catch(error => {
         console.error('Error toggling secret:', error);
     });
+}
+
+function select_wordlist(id) {
+    localStorage.setItem('current_wordlist_id', id);
+    load_wordlist(id);
 }

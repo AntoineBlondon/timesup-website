@@ -80,10 +80,11 @@ function wordlists_screen() {
         } 
         
         screen(
-            title='Listes',
+            title='Mes Listes',
             content=`
             <div id="wordlists-screen">
             ${formatted}
+            <div id="goto-shared-wordlist-button" onclick="sharedwordlists_screen()"><p class="shared_wordlist_text">Listes partagées</p></div>
             <div id="add-wordlist-button" onclick="new_wordlist()"><p class="add_wordlist_text">Ajouter</p></div>
             </div>
             `,
@@ -93,6 +94,35 @@ function wordlists_screen() {
         console.error('Error fetching wordlists:', error);
     });
 }
+
+
+
+
+function sharedwordlists_screen() {
+    getSharedWordLists().then(lists => {
+        let formatted = "";
+        lists = JSON.parse(lists);
+        let selected = Number(localStorage.getItem('current_wordlist_id'));
+        for(let element of lists) {
+            formatted += `<button class="wordlist_element ${selected == element.id ? 'selected' : ''}" id="${element.id}" onclick="select_wordlist(${element.id});sharedwordlists_screen()">${element.title}</button>`;
+        } 
+        
+        screen(
+            title='Listes Partagées',
+            content=`
+            <div id="wordlists-screen">
+            ${formatted}
+            <div id="goto-private-wordlist-button" onclick="wordlists_screen()"><p class="shared_wordlist_text">Mes Listes</p></div>
+            </div>
+            `,
+            parent=menu_screen,
+        );
+    }).catch(error => {
+        console.error('Error fetching wordlists:', error);
+    });
+}
+
+
 
 
 

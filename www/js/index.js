@@ -167,6 +167,28 @@ function getWordLists() {
     });
 }
 
+
+function getSharedWordLists() {
+    return new Promise((resolve, reject) => {
+        const token = localStorage.getItem('jwt');
+        cordova.plugin.http.setDataSerializer('json'); // This line might not be necessary for GET requests
+        cordova.plugin.http.sendRequest(`${BASE_URL}/shared-wordlists`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json' // This header might not be necessary for GET requests
+            },
+        }, response => {
+            console.log('Shared word lists:', response.data);
+            resolve(response.data); // Resolve the promise with the response data
+        }, response => {
+            console.error('Failed to retrieve shared word lists:', response.error);
+            reject(response.error); // Reject the promise if there's an error
+        });
+    });
+}
+
+
 function updateWordList(wordListId, title, words_to_add, words_to_remove, secret) {
     return new Promise((resolve, reject) => {
         const token = localStorage.getItem('jwt');

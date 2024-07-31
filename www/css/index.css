@@ -305,6 +305,43 @@ input {
     color:#EDF2F4;
 }
 
+#goto-shared-wordlist-button {
+    position: absolute;
+    text-align: center;
+    font-size: 1rem;
+    bottom: 2%;
+    left: 2%;
+    cursor: pointer;
+    background-color: transparent;
+    color:#EDF2F4;
+    fill: #0080FF;
+    background-color:#2B2D42;
+    border-radius: .7rem;
+    padding-left: 7%;
+    padding-right: 7%;
+}
+
+#goto-private-wordlist-button {
+    position: absolute;
+    text-align: center;
+    font-size: 1rem;
+    bottom: 2%;
+    left: 2%;
+    cursor: pointer;
+    background-color: transparent;
+    color:#EDF2F4;
+    fill: #0080FF;
+    background-color:#2B2D42;
+    border-radius: .7rem;
+    padding-left: 7%;
+    padding-right: 7%;
+}
+
+.shared_wordlist_text {
+    font-weight: bold;
+    color:#EDF2F4;
+}
+
 
 
 
